@@ -1,0 +1,2 @@
+module AccounthistoriesHelper
+end

@@ -1,0 +1,17 @@
+<%= link_to 'New Account History',new_accounthistory_path %>
+<% unless @accounthistories.nil? %>
+<table>
+<tr><td>SI.No</td><td>Employee Name</td><td>Account Number </td><td>Limit</td><td>Edit</td><td>Delete</td></tr>
+	<% @accounthistories.each_with_index do |accounthistory, si| %>
+	<tr>
+	<td><%= si %></td>
+	<td><%= accounthistory.employee.name %></td>
+	<td><%= accounthistory.account.number %></td>
+	<td><%= accounthistory.limit %></td>
+	<td><%= link_to 'Edit', edit_accounthistory_path(accounthistory) %></td>
+	<td><%= link_to 'Destroy', accounthistory_path(accounthistory),remote: true,method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+	<% end %>
+</table>
+<% end %>

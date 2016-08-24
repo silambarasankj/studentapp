@@ -1,0 +1,24 @@
+<%= link_to 'Account History Home',controller:'accounthistories' %>
+<% if @accounthistories.errors.any? %>
+<div id='error_explation'>
+<h2>
+
+<%= pluralize(@accounthistories.errors.count,"error") %> prohibited this from account history being saved:</h2>
+<ul>
+<% @accounthistories.errors.full_messages.each do |message| %>
+<li><%= message %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+<p>
+<%= f.label :account_id %>
+<%= f.select(:account_id, @accounts, prompt:'Select') %>
+</p>
+<p>
+<%= f.label :limit %>
+<%= f.text_field :limit %>
+</p>
+<p>
+<%= f.submit %>
+</p>

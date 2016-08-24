@@ -1,0 +1,6 @@
+class AccountHistory < ApplicationRecord
+validates :limit, numericality: true, length: {minimum:4, maximum:7}
+validates_associated :account, :uniqueness=> {message: "limit mapped already with #{:account_id}"}
+  belongs_to :account
+end
+

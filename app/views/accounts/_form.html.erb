@@ -1,0 +1,30 @@
+<%= link_to 'Accounts Home',new_account_path %>
+<%= form_for @account do |f| %>
+
+<% if @account.errors.any? %>
+<div id='error_explation'>
+<h2>
+<%= pluralize(@account.errors.count,"error") %> Prohibited this account from being saved:</h2>
+<ul>
+<% @account.errors.full_messages.each do |message| %>
+<li><%= message %><li>
+<% end %>
+</ul>
+</div>
+<% end %>
+
+
+<p>
+<%= f.label :employee_id %>
+<%= f.select(:employee_id, @employees, :prompt => 'Select') %>
+</p>
+
+<p>
+<%= f.label :number, 'Account Number' %>
+<%= f.text_field :number %>
+</p>
+
+<p>
+<%= f.submit 'Map Account Number' %>
+</p>
+<% end %>

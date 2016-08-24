@@ -1,0 +1,11 @@
+<%= link_to 'New Account Map',new_account_path %>
+<% unless @account.nil? %>
+<table>
+<tr><td>SI.No</td><td>Name</td><td>Account Number</td><td>Edit</td><td>Delete</td></tr>
+	<% @account.each_with_index do |account, si| %>
+	<tr><td><%= si %></td><td><%= account.employee.name %></td><td><%= account.number %></td><td><%= link_to 'Edit', edit_account_path(account) %></td><td><td><%= link_to 'Destroy', account_path(account),remote: true,
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td></td></tr>
+	<% end %>
+</table>
+<% end %>

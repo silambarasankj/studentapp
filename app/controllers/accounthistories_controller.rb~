@@ -1,0 +1,25 @@
+class AccounthistoriesController < ApplicationController
+def new
+   @accounts = Account.all.collect  {|map| [map.number,map.id]}
+   @acc_history = AccountHistory.new
+  end
+
+  def create
+   @acc_history = AccountHistory.create(account_history_param)
+   if @acc_history.save
+   redirect_to '/employee'
+   else
+   render 'new'
+   end
+
+  end
+
+  def show
+  end
+
+private
+
+  def account_history_param
+   params.require(:account_histories).permit(:account_id,:limit)
+  end
+end

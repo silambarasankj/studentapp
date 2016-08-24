@@ -1,0 +1,3 @@
+class AttendancePeriod < ApplicationRecord
+  belongs_to :attendance
+end

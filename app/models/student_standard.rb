@@ -1,0 +1,3 @@
+class StudentStandard < ApplicationRecord
+
+end

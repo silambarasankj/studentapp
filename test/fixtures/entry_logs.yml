@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: 2016-08-19
+  log: one
+  log_type: Log
+
+two:
+  day: 2016-08-19
+  log: two
+  log_type: Log

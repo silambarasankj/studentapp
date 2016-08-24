@@ -1,0 +1,25 @@
+<%= link_to 'Attendances Home',attendances_path %>
+
+<%= form_for @attendances do |f| %>
+<% if @attendances.errors.any? %>
+<div id = 'error_validation'>
+<h2><%= pluralize(@attendances.errors.count,'error') %> prohibited this attendancesance entry from being saved:</h2>
+<ul>
+<% @attendances.errors.full_messages.each do |message| %>
+<li><%= message %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+<p>
+<%= f.label :employee_id %>
+<%= f.select :employee_id, @employees, prompt: 'select' %>
+</p>
+<p>
+<%= f.label :day %>
+<%= f.date_select :day, :start_year=>2015 , end_year:2017 , prompt:'Select' %>
+</p>
+<p>
+<%= f.submit 'attendance Entry'%>
+</p>
+<% end %>

@@ -1,0 +1,31 @@
+class AccountsController < ApplicationController
+
+def index
+ @employees = Employee.all.collect { |m| [m.name,m.id]}
+end
+
+def new
+  @account = Account.new
+  @employees = Employee.all.collect { |m| [m.name,m.id]}
+  
+end
+
+def create
+  @account = Account.new(account_param)
+  if @account.save
+   redirect_to '/employee'
+  else
+   @employees = Employee.all.collect { |m| [m.name,m.id]}
+   render 'new'
+  end
+end
+
+def show
+  @accounts = Account.all
+end
+
+private 
+def account_param
+  params.require(:accounts).permit(:employee_id,:number)
+end
+end

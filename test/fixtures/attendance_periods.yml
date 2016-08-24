@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  from_hour: 2016-08-18 01:18:20
+  to_hour: 2016-08-18 01:18:20
+  attendance: one
+
+two:
+  from_hour: 2016-08-18 01:18:20
+  to_hour: 2016-08-18 01:18:20
+  attendance: two

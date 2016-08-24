@@ -1,0 +1,19 @@
+<%= link_to 'New Employee Entry', new_employee_path %>
+<% unless @employee.nil? %>
+<table>
+<tr><td>SI.No</td><td>Name</td><td>Edit</td><td>Delete</td></tr>
+	<% @employee.each_with_index do |employee, si| %>
+	<tr><td><%= si+1 %></td><td><%= employee.name %></td><td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+	<td><%= link_to 'Destroy', employee_path(employee), method: :delete, data: { confirm:'Are you sure?' } %></td></tr>
+	<% end %>
+</table>
+<% end %>
+<% if can? :update, @employee %>
+	
+</br><%= link_to 'Map Account No',accounts_path %>
+</br><%= link_to 'Attendance entry',attendances_path %>
+</br><%= link_to 'Account History Mapping','accounthistories' %>
+</br><%= link_to 'Attendance Period Mapping','attendancehistories' %>
+<% end %>
+</br><%= link_to 'Log out',destroy_user_session_path, method: :delete %>
+

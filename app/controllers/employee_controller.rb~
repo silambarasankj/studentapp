@@ -1,0 +1,29 @@
+class EmployeeController < ApplicationController
+def index
+ @employees = Employee.all
+end
+
+def new
+@employee = Employee.new
+end
+
+def create
+  @employee = Employee.new(emp_param)
+  if @employee.save
+  redirect_to @employee
+  else
+  render 'new'
+  end
+
+end
+
+def show
+@employees=Employee.all
+end
+
+private
+
+def emp_param
+  params.require(:employee).permit(:name,:department)
+end
+end

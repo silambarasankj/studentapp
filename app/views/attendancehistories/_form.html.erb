@@ -1,0 +1,33 @@
+<%= link_to "Attendance History Home",controller:'attendancehistories' %>
+
+<% if @attendance_history.errors.any? %>
+<div id='error_explanation'>
+<h2><%= pluralize(@attendance_history.errors.count, 'error') %> prohibited this account history from being saved:</h2>
+<ul>
+<% @attendance_history.errors.full_messages.each do |message| %>
+<li><%= message %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+
+<p>
+<%= f.label :attendance_id %>
+<%= f.select(:attendance_id, @attendances, :prompt=>'Select') %>
+</p>
+
+<p>
+<%= f.label :from_hour %>
+<%= f.time_select(:from_hour, prompt:'Select') %>
+</p>
+
+<p>
+<%= f.label :to_hour %>
+<%= f.time_select(:to_hour, prompt:'Select') %>
+</p>
+
+<p>
+<%= f.submit 'assign period' %>
+</p>
+
+

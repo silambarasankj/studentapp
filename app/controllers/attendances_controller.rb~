@@ -1,0 +1,21 @@
+class AttendancesController < ApplicationController
+def new
+  @employees = Employee.all.collect { |m| [m.name,m.id] }
+  @attend = Attendance.new
+end
+
+def create
+  @attend = Attendance.new(attend_param)
+  if @attend.save
+  redirect_to '/employee'
+  else
+  @employees = Employee.all.collect { |m| [m.name,m.id] }
+  render 'new'
+end
+
+private
+def attend_param
+params.require(:attendances).permit(:day, :employee_id)
+end
+
+end

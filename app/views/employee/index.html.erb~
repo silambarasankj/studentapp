@@ -1,0 +1,4 @@
+<%= link_to 'Add Employee',new_employee_path %><%= @employees.inspect %></br><%= link_to 'Map Account No',new_account_path %>
+</br><%= link_to 'Attendance entry',new_attendance_path %>
+</br><%= link_to 'Account History Mapping',new_accounthistory_path %>
+</br><%= link_to 'Attendance Period Mapping',new_attendancehistories_path %>

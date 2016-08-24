@@ -1,0 +1,19 @@
+<%= form_for :account_histories, url: { action:'create'} do |f| %>
+<% if @acc_history.errors.any? %>
+<div id='error_explation'>
+<h2>
+<%= pluralize(@acc_history.errors.count,"error") %>
+<%= pluralize(@acc_history.errors.count,"error") %> prohibited this from account history being saved:</h2>
+<ul>
+<% @acc_history.errors.full_messages.each do |message| %>
+<li><%= message %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+<%= f.label :account_id %>
+<%= f.select(:account_id, @accounts, prompt:'Select') %>
+<%= f.label :limit %>
+<%= f.text_field :limit %>
+<%= f.submit %>
+<% end %>

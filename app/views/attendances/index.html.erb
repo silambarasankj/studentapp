@@ -1,0 +1,17 @@
+<%= link_to 'Attendance Entry',new_attendance_path %>
+
+<% unless @attendances.nil? %>
+<table>
+<tr><td>SI.No</td><td>Employee Name</td><td>Attendance Day </td><td>Edit</td><td>Delete</td></tr>
+	<% @attendances.each_with_index do |attendance, si| %>
+	<tr>
+	<td><%= si %></td>
+	<td><%= attendance.employee.name %></td>
+	<td><%= attendance.day %></td>
+	<td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
+	<td><%= link_to 'Destroy', attendance_path(attendance),remote: true,method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+	<% end %>
+</table>
+<% end %>

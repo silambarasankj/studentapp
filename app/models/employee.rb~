@@ -1,0 +1,12 @@
+class Employee < ApplicationRecord
+validates :name, :department, presence: { message: "must be given please" }
+validates :name, length: { minimum:4, maximum:10 }
+validates :department, uniqueness: true
+has_one :account
+has_one :account_history, through: :account
+has_many :attendances
+has_many :attendance_periods, through: :attendances
+has_many :entry_logs, as: :log
+has_many :comments, as: :commentable
+
+end

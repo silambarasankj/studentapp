@@ -1,0 +1,4 @@
+class Standard < ApplicationRecord
+has_many :standards_students
+has_many :students, through: :standards_students
+end

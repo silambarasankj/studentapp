@@ -1,0 +1,2 @@
+class Productmapping < ApplicationRecord
+end

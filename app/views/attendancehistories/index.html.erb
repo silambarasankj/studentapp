@@ -1,0 +1,17 @@
+<%= link_to 'New Attendance history', new_attendancehistory_path %><% unless @attendance_histories.nil? %>
+<table>
+<tr><td>SI.No</td><td>Employee Name</td><td>Day </td><td>From Hour </td><td>To Hour </td><td>Edit</td><td>Delete</td></tr>
+	<% @attendance_histories.each_with_index do |attendance, si| %>
+	<tr>
+	<td><%= si %></td>
+	<td><%= attendance.attendance.employee.name %></td>
+	<td><%= attendance.attendance.day %></td>
+	<td><%= attendance.from_hour %></td>
+	<td><%= attendance.to_hour %></td>
+	<td><%= link_to 'Edit', edit_attendancehistory_path(attendance) %></td>
+	<td><%= link_to 'Destroy', attendancehistory_path(attendance),method: :delete, remote: true,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+	<% end %>
+</table>
+<% end %>
