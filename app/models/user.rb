@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 def admin?
   #self.role.name == "Admin"
-  #git testing
+  
   false
 end
 end
