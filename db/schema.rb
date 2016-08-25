@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160824004424) do
+ActiveRecord::Schema.define(version: 20160825123323) do
 
   create_table "account_histories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "limit"
@@ -165,6 +165,15 @@ ActiveRecord::Schema.define(version: 20160824004424) do
     t.index ["student_id"], name: "index_tests_on_student_id", using: :btree
   end
 
+  create_table "user_roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["role_id"], name: "index_user_roles_on_role_id", using: :btree
+    t.index ["user_id"], name: "index_user_roles_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -186,4 +195,6 @@ ActiveRecord::Schema.define(version: 20160824004424) do
   add_foreign_key "accounts", "employees"
   add_foreign_key "attendance_periods", "attendances"
   add_foreign_key "attendances", "employees"
+  add_foreign_key "user_roles", "roles"
+  add_foreign_key "user_roles", "users"
 end
